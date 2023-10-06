@@ -5,14 +5,15 @@ import javafx.scene.chart.PieChart.Data;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import javafx.scene.chart.PieChart;
-import data.RecipesLib;
+// import data;
 
 public class viewController{
-    public Recipeslib recipeslib;
+    // private Recipeslib recipeslib;
     @FXML
     private PieChart RecipeShow ;
     public viewController(){
         // RecipesLib recipeslib;
+        // recipeslib = new RecipesLib();
         System.out.println("Init viewController");
     }
 
