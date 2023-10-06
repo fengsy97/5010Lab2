@@ -33,6 +33,10 @@ public class viewController{
     private Button AddIngredient;
     @FXML
     private Slider AddAmount;
+    @FXML
+    private Button CreateRecipe;
+    @FXML
+    private ChoiceBox<String> RecipeChoiceProduct;
 
 
 
@@ -44,10 +48,11 @@ public class viewController{
 
     // called by the FXML loader after the labels declared above are injected:
     public void initialize() {
-        System.out.println("Initialize");
+        // System.out.println("Initialize");
         int recipe_num = 0;
         setRecipeShow(recipe_num);
         setRecipeChoice(recipe_num);
+        // setRecipeChoice(recipe_num,RecipeChoiceProduct);
         RecipeChoice.setOnAction((event) -> {
             String recipe_name = (String)RecipeChoice.getValue();
             int[] recipe = recipeslib.getRecipe(recipe_name);
@@ -55,6 +60,7 @@ public class viewController{
             String[] ingredients = recipeslib.getIngredients();
             RecipeShow.setData(getRecipe(ingredients,recipe,ingredient_num));
         });
+
         AddIngredient.setOnAction((event) -> {
             String ingredient_name = (String)InventoryChoice.getValue();
             // int[] recipe = recipeslib.getRecipe((String)RecipeChoice.getValue());
@@ -95,8 +101,10 @@ public class viewController{
             if(recipe_names[i].equals("")){
                 continue;
             }
+            RecipeChoiceProduct.getItems().add(recipe_names[i]);
             RecipeChoice.getItems().add(recipe_names[i]);
         }
+        RecipeChoiceProduct.setValue(recipe_names[recipe_num]);
         RecipeChoice.setValue(recipe_names[recipe_num]);
     }
 

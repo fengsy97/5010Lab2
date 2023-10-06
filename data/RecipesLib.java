@@ -12,7 +12,6 @@ public class RecipesLib  {
     String[] Recipe_name;
 
     public RecipesLib(){
-        // System.out.println("Init RecipesLib");
         this.ingredient_types = 4;
         this.max_recipe_num = 100;
         this.ingredient_num = new int[] {1000,1000,1000,1000};
@@ -29,13 +28,12 @@ public class RecipesLib  {
         Recipe_name[1] = "JuiceYougurt";
         Recipes[0] = new int[]{20,10,5,30};
         Recipes[1] = new int[]{50,10,0,30};
-
     }
 
     public int[] getIngredientRemain(){
         return this.ingredient_num;
     }
-    
+
     public String[] getIngredients(){
         return this.ingredients;
     }
