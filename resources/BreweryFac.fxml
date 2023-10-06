@@ -1,15 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <!-- <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?> -->
 
-<AnchorPane prefHeight="328.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewController">
+<AnchorPane prefHeight="455.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewController">
    <children>
-      <PieChart fx:id="RecipeShow" prefHeight="184.0" prefWidth="201.0" />
-      <ChoiceBox layoutX="31.0" layoutY="14.0" prefHeight="23.0" prefWidth="113.0" />
+      <PieChart fx:id="RecipeShow" layoutX="35.0" layoutY="14.0" legendVisible="false" prefHeight="204.0" prefWidth="245.0" />
+      <ChoiceBox fx:id="RecipeChoice" layoutX="86.0" layoutY="216.0" prefHeight="23.0" prefWidth="113.0" />
+      <Separator layoutX="279.0" orientation="VERTICAL" prefHeight="455.0" prefWidth="39.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="6.0" layoutX="78.0" layoutY="14.0" prefHeight="38.0" prefWidth="128.0" text="Recipe Library" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="6.0" layoutX="421.0" layoutY="14.0" prefHeight="38.0" prefWidth="170.0" text="Production System" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="605.0" layoutY="77.0" mnemonicParsing="false" text="Make" />
+      <Slider layoutX="446.0" layoutY="73.0" showTickLabels="true" />
+      <Separator layoutX="1.0" layoutY="252.0" prefHeight="4.0" prefWidth="296.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="6.0" layoutX="431.0" layoutY="254.0" prefHeight="38.0" prefWidth="170.0" text="Inventory System" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Slider layoutX="436.0" layoutY="383.0" majorTickUnit="50.0" max="1000.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <ChoiceBox fx:id="InventoryChoice" layoutX="356.0" layoutY="387.0" prefHeight="23.0" prefWidth="71.0" />
+      <Button fx:id="AddIngredient" layoutX="601.0" layoutY="388.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="56.0" text="Add" />
+      <Button layoutX="353.0" layoutY="146.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="83.0" text="container1" />
+      <Button layoutX="465.0" layoutY="146.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="83.0" text="container2" />
+      <Button layoutX="580.0" layoutY="146.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="83.0" text="container3" />
+      <Separator layoutX="291.0" layoutY="252.0" prefHeight="4.0" prefWidth="437.0" />
+      <ChoiceBox layoutX="353.0" layoutY="77.0" prefHeight="23.0" prefWidth="83.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="6.0" layoutX="85.0" layoutY="254.0" prefHeight="38.0" prefWidth="128.0" text="Create Recipe" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="213.0" layoutY="415.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="56.0" text="Create" />
+      <TextField layoutX="93.0" layoutY="415.0" prefHeight="23.0" prefWidth="113.0" text="BreweryName" />
+      <Label alignment="CENTER" layoutX="35.0" layoutY="415.0" prefHeight="23.0" prefWidth="56.0" text="Name" />
+      <GridPane fx:id="ShowRemains" layoutX="346.0" layoutY="287.0" prefHeight="90.0" prefWidth="326.0" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="57.0" AnchorPane.topAnchor="287.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+          <!-- <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" /> -->
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="Juice" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="Milk" GridPane.columnIndex="1" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="Tea" GridPane.columnIndex="2" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="Yougurt" GridPane.columnIndex="3" />
+            <Label fx:id="Remain_Juice" alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Label fx:id="Remain_Milk" alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="Remain_Tea" alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="Remain_Yougurt" alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="297.0" prefHeight="10.0" prefWidth="80.0" text="Juice" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="380.0" prefHeight="10.0" prefWidth="80.0" text="Yougurt" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="351.0" prefHeight="10.0" prefWidth="80.0" text="Tea" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="324.0" prefHeight="10.0" prefWidth="80.0" text="Milk" />
+      <TextField layoutX="93.0" layoutY="377.0" prefHeight="23.0" prefWidth="113.0" promptText="Enter an integer" text="0" />
+      <TextField layoutX="93.0" layoutY="347.0" prefHeight="23.0" prefWidth="113.0" promptText="Enter an integer" text="0" />
+      <TextField layoutX="93.0" layoutY="293.0" prefHeight="23.0" prefWidth="113.0" promptText="Enter an integer" text="0" />
+      <TextField layoutX="93.0" layoutY="321.0" prefHeight="23.0" prefWidth="113.0" promptText="Enter an integer" text="0" />
    </children>
 </AnchorPane>
