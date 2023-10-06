@@ -3,6 +3,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.GridPane;
 import javafx.scene.chart.PieChart.Data;
 import javafx.collections.ObservableList;
@@ -30,7 +31,9 @@ public class viewController{
     private ChoiceBox<String> InventoryChoice;
     @FXML
     private Button AddIngredient;
-    
+    @FXML
+    private Slider AddAmount;
+
 
 
     public viewController(){
@@ -51,6 +54,23 @@ public class viewController{
             int ingredient_num = recipeslib.getIngredientNum();
             String[] ingredients = recipeslib.getIngredients();
             RecipeShow.setData(getRecipe(ingredients,recipe,ingredient_num));
+        });
+        AddIngredient.setOnAction((event) -> {
+            String ingredient_name = (String)InventoryChoice.getValue();
+            // int[] recipe = recipeslib.getRecipe((String)RecipeChoice.getValue());
+            int ingredient_num = recipeslib.getIngredientNum();
+            String[] ingredients = recipeslib.getIngredients();
+            int[] ingredient_remain = recipeslib.getIngredientRemain();
+            int index = 0;
+            for(int i = 0;i < ingredient_num;i++){
+                if(ingredients[i].equals(ingredient_name)){
+                    index = i;
+                    break;
+                }
+            }
+            int add_amount = (int)AddAmount.getValue();
+            ingredient_remain[index] += add_amount;
+            setRemain();
         });
         setRemain();
         updateInventory();

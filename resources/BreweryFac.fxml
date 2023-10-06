@@ -39,7 +39,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Slider layoutX="436.0" layoutY="383.0" majorTickUnit="50.0" max="1000.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Slider fx:id="AddAmount" layoutX="436.0" layoutY="383.0" majorTickUnit="50.0" max="1000.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
       <ChoiceBox fx:id="InventoryChoice" layoutX="356.0" layoutY="387.0" prefHeight="23.0" prefWidth="71.0" />
       <Button fx:id="AddIngredient" layoutX="601.0" layoutY="388.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="56.0" text="Add" />
       <Button layoutX="353.0" layoutY="146.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="83.0" text="container1" />
