@@ -1,69 +1,54 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-class Ingredient{
-    Ingredient next;
-    private String name;
-    private String unit;
-    private float amount;
-    Ingredient(String name,String unit,float amount){
-        this.name = name;
-        this.unit = unit;
-        this.amount = amount;
-    }
-    void set_amount(float amount){this.amount = amount;}
-
-    public void print_ingredient(){
-        System.out.println(this.name + this.amount + String.valueOf(this.unit));
-    }
-
-    public String get_name(){return this.name;}
-}
-
-class Recipe{
-    Recipe next;
-    private String name;
-    private Ingredient head;
-    Recipe(String name){
-        this.name = name;
-        this.head = new Ingredient(name+"_head","",0);
-    }
-    public void add_ingredient(String name,String unit,float amount){
-        System.out.println(name);
-    }
-    public void print_recipe(){
-        System.out.println("The ingredient of" + this.name + ":");
-        Ingredient temp = this.head;
-        while(temp != null){
-            temp.print_ingredient();
-            // System.out.println()
-        }
-    }
-    public String get_name(){return this.name;}
-}
+// Purpose: The class of RecipesLib
 
 
-public class RecipesLib{
-    Recipe lib_ingred;
+
+public class RecipesLib  {
+    int ingredient_num;
+    int max_recipe_num;
+    String[] ingredients;
+    int[][] Recipes;
+    String[] Recipe_name;
+
     RecipesLib(){
-        this.lib_ingred = new Recipe("head");
-        
-        BufferedReader reader;
-        String filename = "./Ingredient";
-        try{
-            reader = new BufferedReader(new FileReader(filename));
-            String line = reader.readLine();
-            while(line  != null){
-                Tmp.add(line);
-                line = reader.readLine();
+        System.out.println("Init RecipesLib");
+        this.ingredient_num = 4;
+        this.max_recipe_num = 10000;
+        this.ingredients = new String[]{"Juice","Milk","Tea","Yougurt"};
+        this.Recipes = new int[this.max_recipe_num][this.ingredient_num];
+        this.Recipe_name = new String[this.max_recipe_num];
+        for(int i = 0;i < this.max_recipe_num;i++){
+            this.Recipe_name[i] = "";
+            for(int j = 0;j < this.ingredient_num;j++){
+                this.Recipes[i][j] = 0;
             }
-        } catch (IOException e){
-            e.printStackTrace();
         }
+        Recipe_name[0] = "MilkTea";
+        Recipes[0][0] = 20;
+        Recipes[0][1] = 10;
+        Recipes[0][2] = 5;
+        Recipes[0][3] = 30;
     }
-    public static void main(String[] args){
-        Recipe recipe = new Recipe("head");
-        recipe.add_ingredient("null", "null", 0);
-        return;
+    // public static void main(String[] args){
+    //     System.out.println("Hello World!");
+    //     return;
+    // }
+    public int[] getRecipe(String name){
+        for(int i = 0;i < this.max_recipe_num;i++){
+            if(this.Recipe_name[i].equals(name)){
+                return this.Recipes[i];
+            }
+        }
+        return null;
+    }
+    public void addRecipe(String name,int[] recipe){
+        for(int i = 0;i < this.max_recipe_num;i++){
+            if(this.Recipe_name[i].equals("")){
+                this.Recipe_name[i] = name;
+                for(int j = 0;j < this.ingredient_num;j++){
+                    this.Recipes[i][j] = recipe[j];
+                }
+                break;
+            }
+        }
     }
 }

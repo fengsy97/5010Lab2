@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TitledPane animated="false" layoutX="22.0" layoutY="28.0" prefHeight="225.0" prefWidth="385.0" text="Ingredient">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <content>
+            <TableView prefHeight="192.0" prefWidth="350.0">
+              <columns>
+                <TableColumn editable="false" prefWidth="75.0" text="Name" />
+                <TableColumn editable="false" prefWidth="72.00001525878906" text="Tea" />
+                  <TableColumn editable="false" prefWidth="70.6666259765625" text="Yogurt" />
+                  <TableColumn editable="false" prefWidth="75.99996948242188" text="Juice" />
+                  <TableColumn editable="false" prefWidth="88.66670735677081" text="Milk" />
+              </columns>
+            </TableView>
+         </content>
+      </TitledPane>
+      <PieChart layoutX="512.0" layoutY="28.0" prefHeight="252.0" prefWidth="201.0" title="Recipe" />
+   </children>
+</Pane>
