@@ -43,9 +43,8 @@
       <Slider fx:id="AddAmount" layoutX="436.0" layoutY="383.0" majorTickUnit="50.0" max="1000.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
       <ChoiceBox fx:id="InventoryChoice" layoutX="356.0" layoutY="387.0" prefHeight="23.0" prefWidth="71.0" />
       <Button fx:id="AddIngredient" layoutX="601.0" layoutY="388.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="56.0" text="Add" />
-      <Button layoutX="353.0" layoutY="146.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="83.0" text="container1" />
-      <Button layoutX="465.0" layoutY="146.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="83.0" text="container2" />
-      <Button layoutX="580.0" layoutY="146.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="83.0" text="container3" />
+      <Button fx:id = "Container0" layoutX="374.0" layoutY="129.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" text="Container0" />
+      <Button fx:id = "Container1" layoutX="527.0" layoutY="129.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="120.0" text="Container1" />
       <Separator layoutX="291.0" layoutY="252.0" prefHeight="4.0" prefWidth="437.0" />
       <ChoiceBox fx:id="RecipeChoiceProduct" layoutX="353.0" layoutY="77.0" prefHeight="23.0" prefWidth="83.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="6.0" layoutX="85.0" layoutY="254.0" prefHeight="38.0" prefWidth="128.0" text="Create Recipe" textAlignment="CENTER">
@@ -87,14 +86,10 @@
       <Slider fx:id="Amount_Milk" layoutX="88.0" layoutY="380.0" max="20.0" showTickLabels="true" />
       <Slider fx:id="Amount_Tea" layoutX="88.0" layoutY="352.0" max="20.0" showTickLabels="true" />
       <Slider fx:id="Amount_Yougurt" layoutX="88.0" layoutY="325.0" max="20.0" showTickLabels="true" />
-      <TextArea editable="false" layoutX="358.0" layoutY="209.0" prefHeight="32.0" prefWidth="303.0" wrapText="true">
+      <TextArea fx:id="LogScreen" editable="false" layoutX="357.0" layoutY="189.0" prefHeight="54.0" prefWidth="303.0" wrapText="true">
          <font>
             <Font size="13.0" />
          </font>
       </TextArea>
-      <!-- <TextField fx:id="Amount_Juice" accessibleRole="SLIDER" layoutX="93.0" layoutY="377.0" prefHeight="23.0" prefWidth="113.0" promptText="Enter an integer" text="0" />
-      <TextField fx:id="Amount_Milk" accessibleRole="SLIDER" layoutX="93.0" layoutY="347.0" prefHeight="23.0" prefWidth="113.0" promptText="Enter an integer" text="0" />
-      <TextField fx:id="Amount_Tea" accessibleRole="SLIDER" layoutX="93.0" layoutY="293.0" prefHeight="23.0" prefWidth="113.0" promptText="Enter an integer" text="0" />
-      <TextField fx:id="Amount_Yougurt" accessibleRole="SLIDER" layoutX="93.0" layoutY="321.0" prefHeight="23.0" prefWidth="113.0" promptText="Enter an integer" text="0" /> -->
    </children>
 </AnchorPane>

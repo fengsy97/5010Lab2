@@ -1,7 +1,4 @@
 package data;
-// Purpose: The class of RecipesLib
-
-// import javafx.collections.ObservableList;
 
 public class RecipesLib  {
     int ingredient_types;
