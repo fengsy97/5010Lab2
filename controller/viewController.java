@@ -42,13 +42,13 @@ public class viewController{
     @FXML
     private TextField RecipeName;
     @FXML
-    private TextField Amount_Juice;
+    private Slider Amount_Juice;
     @FXML
-    private TextField Amount_Milk;
+    private Slider Amount_Milk;
     @FXML
-    private TextField Amount_Tea;
+    private Slider Amount_Tea;
     @FXML
-    private TextField Amount_Yougurt;
+    private Slider Amount_Yougurt;
 
 
 
@@ -84,10 +84,11 @@ public class viewController{
             System.out.println("CreateRecipe:"+recipe_name);
             int[] recipe = new int[4];
             try{
-                recipe[0] = Integer.parseInt(Amount_Juice.getText());
-                recipe[1] = Integer.parseInt(Amount_Milk.getText());
-                recipe[2] = Integer.parseInt(Amount_Tea.getText());
-                recipe[3] = Integer.parseInt(Amount_Yougurt.getText());
+                recipe[0] = (int)Amount_Juice.getValue();
+                recipe[1] = (int)Amount_Milk.getValue();
+                recipe[2] = (int)Amount_Tea.getValue();
+                recipe[3] = (int)Amount_Yougurt.getValue();
+                
             }catch(Exception e){
                 System.out.println("CreateRecipe:input error");
                 return;
