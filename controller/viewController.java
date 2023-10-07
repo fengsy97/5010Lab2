@@ -49,6 +49,10 @@ public class viewController{
     private Slider Amount_Tea;
     @FXML
     private Slider Amount_Yougurt;
+    @FXML
+    private Button Make;
+    @FXML
+    private Slider BatchSize;
 
 
 
@@ -79,29 +83,44 @@ public class viewController{
             RecipeShow.setData(getRecipe(ingredients,recipe,ingredient_num));
         });
 
+        Make.setOnAction((event) -> {
+            String recipe_name = (String)RecipeChoiceProduct.getValue();
+            int[] recipe = recipeslib.getRecipe(recipe_name);
+            int ingredient_num = recipeslib.getIngredientNum();
+            // String[] ingredients = recipeslib.getIngredients();
+            int[] ingredient_remain = recipeslib.getIngredientRemain();
+            int batch_size = (int)BatchSize.getValue();
+            for(int i = 0;i < ingredient_num;i++){
+                if(ingredient_remain[i] < recipe[i] * batch_size){
+                    System.out.println("Make:fail, not enough ingredient");
+                    return;
+                }
+            }
+            for(int i = 0;i < ingredient_num;i++){
+                ingredient_remain[i] -= recipe[i] * batch_size;
+            }
+            setRemain();
+        });
+
         CreateRecipe.setOnAction((event) -> {
             String recipe_name = RecipeName.getText();
-            System.out.println("CreateRecipe:"+recipe_name);
+            // System.out.println("CreateRecipe:"+recipe_name);
+            
             int[] recipe = new int[4];
-            try{
-                recipe[0] = (int)Amount_Juice.getValue();
-                recipe[1] = (int)Amount_Milk.getValue();
-                recipe[2] = (int)Amount_Tea.getValue();
-                recipe[3] = (int)Amount_Yougurt.getValue();
-                
-            }catch(Exception e){
-                System.out.println("CreateRecipe:input error");
+            recipe[0] = (int)Amount_Juice.getValue();
+            recipe[1] = (int)Amount_Milk.getValue();
+            recipe[2] = (int)Amount_Tea.getValue();
+            recipe[3] = (int)Amount_Yougurt.getValue();
+            if( recipe_name.length() == 0 || recipe[0] + recipe[1] + recipe[2] + recipe[3] == 0){
+                System.out.println("CreateRecipe:fail");
                 return;
             }
             if(recipeslib.addRecipe(recipe_name,recipe)){
-                System.out.println("CreateRecipe:success");
+                System.out.println("CreateRecipe:success :" + recipe_name + "-");
                 setRecipeChoice(recipe_name);
             }else{
                 System.out.println("CreateRecipe:fail");
             }
-            
-            // setRecipeShow(0);
-            // updateInventory();
         });
 
         AddIngredient.setOnAction((event) -> {
@@ -166,8 +185,6 @@ public class viewController{
     }
 
     private void setRemain(){
-        // String[] ingredients = recipeslib.getIngredients();
-        // int ingredient_num = recipeslib.getIngredientNum();
         int[] ingredient_remain = recipeslib.getIngredientRemain();
         if(ingredient_remain == null){
             System.out.println("Initialize:ingredient_remain is null");

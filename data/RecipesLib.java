@@ -13,7 +13,7 @@ public class RecipesLib  {
 
     public RecipesLib(){
         this.ingredient_types = 4;
-        this.max_recipe_num = 100;
+        this.max_recipe_num = 1000;
         this.ingredient_num = new int[] {1000,1000,1000,1000};
         this.ingredients = new String[]{"Juice","Milk","Tea","Yougurt"};
         this.Recipes = new int[this.max_recipe_num][this.ingredient_types];
@@ -26,8 +26,8 @@ public class RecipesLib  {
         }
         Recipe_name[0] = "MilkTea";
         Recipe_name[1] = "JuiceYougurt";
-        Recipes[0] = new int[]{20,10,5,30};
-        Recipes[1] = new int[]{50,10,0,30};
+        Recipes[0] = new int[]{2,20,5,10};
+        Recipes[1] = new int[]{15,10,0,20};
     }
 
     public int[] getIngredientRemain(){
