@@ -4,7 +4,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.scene.chart.PieChart.Data;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
@@ -37,6 +39,16 @@ public class viewController{
     private Button CreateRecipe;
     @FXML
     private ChoiceBox<String> RecipeChoiceProduct;
+    @FXML
+    private TextField RecipeName;
+    @FXML
+    private TextField Amount_Juice;
+    @FXML
+    private TextField Amount_Milk;
+    @FXML
+    private TextField Amount_Tea;
+    @FXML
+    private TextField Amount_Yougurt;
 
 
 
@@ -51,14 +63,44 @@ public class viewController{
         // System.out.println("Initialize");
         int recipe_num = 0;
         setRecipeShow(recipe_num);
-        setRecipeChoice(recipe_num);
+        RecipeChoiceProduct.setValue("MilkTea");
+        RecipeChoice.setValue("MilkTea");
+        setRecipeChoice("");
         // setRecipeChoice(recipe_num,RecipeChoiceProduct);
         RecipeChoice.setOnAction((event) -> {
             String recipe_name = (String)RecipeChoice.getValue();
+            if(recipe_name == null){
+                System.out.println("Initialize:recipe_name is null");
+                return;
+            }
             int[] recipe = recipeslib.getRecipe(recipe_name);
             int ingredient_num = recipeslib.getIngredientNum();
             String[] ingredients = recipeslib.getIngredients();
             RecipeShow.setData(getRecipe(ingredients,recipe,ingredient_num));
+        });
+
+        CreateRecipe.setOnAction((event) -> {
+            String recipe_name = RecipeName.getText();
+            System.out.println("CreateRecipe:"+recipe_name);
+            int[] recipe = new int[4];
+            try{
+                recipe[0] = Integer.parseInt(Amount_Juice.getText());
+                recipe[1] = Integer.parseInt(Amount_Milk.getText());
+                recipe[2] = Integer.parseInt(Amount_Tea.getText());
+                recipe[3] = Integer.parseInt(Amount_Yougurt.getText());
+            }catch(Exception e){
+                System.out.println("CreateRecipe:input error");
+                return;
+            }
+            if(recipeslib.addRecipe(recipe_name,recipe)){
+                System.out.println("CreateRecipe:success");
+                setRecipeChoice(recipe_name);
+            }else{
+                System.out.println("CreateRecipe:fail");
+            }
+            
+            // setRecipeShow(0);
+            // updateInventory();
         });
 
         AddIngredient.setOnAction((event) -> {
@@ -94,7 +136,21 @@ public class viewController{
         InventoryChoice.setValue(ingredients[0]);
     }
 
-    private void setRecipeChoice(int recipe_num){
+    private void setRecipeChoice(String recipe_name){
+        if(recipe_name == ""){
+            recipe_name = (String)RecipeChoice.getValue();
+        }
+        
+        if(RecipeChoiceProduct == null || RecipeChoice == null){
+            System.out.println("Initialize:RecipeChoiceProduct or RecipeChoice is null");
+            return;
+        }
+        if(RecipeChoiceProduct.getItems() != null ){
+            RecipeChoiceProduct.getItems().clear();
+        }
+        if(RecipeChoice.getItems() != null ){
+            RecipeChoice.getItems().clear();
+        }
         String[] recipe_names = recipeslib.getRecipeNames();
         int max_recipe_num = recipeslib.getMaxRecipeNum();
         for(int i = 0;i < max_recipe_num;i++){
@@ -104,8 +160,8 @@ public class viewController{
             RecipeChoiceProduct.getItems().add(recipe_names[i]);
             RecipeChoice.getItems().add(recipe_names[i]);
         }
-        RecipeChoiceProduct.setValue(recipe_names[recipe_num]);
-        RecipeChoice.setValue(recipe_names[recipe_num]);
+        RecipeChoiceProduct.setValue(recipe_name);
+        RecipeChoice.setValue(recipe_name);
     }
 
     private void setRemain(){
@@ -138,7 +194,9 @@ public class viewController{
         ObservableList<Data> answer = FXCollections.observableArrayList();
         String [] pieColors = {"#ff8000", "#ffff00", "#80ff00","#00ffff", "#0080ff", "#0000ff", "#8000ff", "#ff00ff", "#ff0080"};
         for(int i = 0;i < ingredient_num;i++){
-            answer.add(new PieChart.Data(ingredients[i] +":"+ recipe[i],recipe[i]));
+            if(recipe[i]>0){
+                answer.add(new PieChart.Data(ingredients[i] +":"+ recipe[i],recipe[i]));
+            }   
         }
         RecipeShow.setData(answer);
         int i = 0;
@@ -146,13 +204,6 @@ public class viewController{
             data.getNode().setStyle("-fx-pie-color: " + pieColors[i % pieColors.length] + ";");
             i++;
         }
-        return answer;
-    }
-
-    private ObservableList<Data> getChartData() {
-        ObservableList<Data> answer = FXCollections.observableArrayList();
-        answer.addAll(new PieChart.Data("java", 17),
-                new PieChart.Data("JavaFx", 31));
         return answer;
     }
 }

@@ -1,7 +1,7 @@
 package data;
 // Purpose: The class of RecipesLib
 
-import javafx.collections.ObservableList;
+// import javafx.collections.ObservableList;
 
 public class RecipesLib  {
     int ingredient_types;
@@ -59,15 +59,16 @@ public class RecipesLib  {
         return null;
     }
 
-    public void addRecipe(String name,int[] recipe){
+    public boolean addRecipe(String name,int[] recipe){
         for(int i = 0;i < this.max_recipe_num;i++){
-            if(this.Recipe_name[i].equals("")){
+            if(this.Recipe_name[i].equals("") || this.Recipe_name[i].equals(name)){
                 this.Recipe_name[i] = name;
                 for(int j = 0;j < this.ingredient_types;j++){
                     this.Recipes[i][j] = recipe[j];
                 }
-                break;
+                return true;
             }
         }
+        return false;
     }
 }
