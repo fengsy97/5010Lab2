@@ -9,9 +9,6 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
 <!-- <?import javafx.scene.layout.Pane?>
@@ -43,8 +40,8 @@
       <Slider fx:id="AddAmount" layoutX="436.0" layoutY="383.0" majorTickUnit="50.0" max="1000.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
       <ChoiceBox fx:id="InventoryChoice" layoutX="356.0" layoutY="387.0" prefHeight="23.0" prefWidth="71.0" />
       <Button fx:id="AddIngredient" layoutX="601.0" layoutY="388.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="56.0" text="Add" />
-      <Button fx:id = "Container0" layoutX="374.0" layoutY="129.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" text="Container0" />
-      <Button fx:id = "Container1" layoutX="527.0" layoutY="129.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="120.0" text="Container1" />
+      <Button fx:id="Container0" layoutX="374.0" layoutY="129.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" text="Container0" />
+      <Button fx:id="Container1" layoutX="527.0" layoutY="129.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="120.0" text="Container1" />
       <Separator layoutX="291.0" layoutY="252.0" prefHeight="4.0" prefWidth="437.0" />
       <ChoiceBox fx:id="RecipeChoiceProduct" layoutX="353.0" layoutY="77.0" prefHeight="23.0" prefWidth="83.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="6.0" layoutX="85.0" layoutY="254.0" prefHeight="38.0" prefWidth="128.0" text="Create Recipe" textAlignment="CENTER">
@@ -54,30 +51,15 @@
       </Label>
       <Button fx:id="CreateRecipe" layoutX="213.0" layoutY="415.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="56.0" text="Create" />
       <TextField fx:id="RecipeName" layoutX="93.0" layoutY="415.0" prefHeight="23.0" prefWidth="113.0" text="RecipeName" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="296.0" prefHeight="10.0" prefWidth="80.0" text="Juice" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="421.0" layoutY="297.0" prefHeight="10.0" prefWidth="80.0" text="Milk" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="501.0" layoutY="297.0" prefHeight="10.0" prefWidth="80.0" text="Tea" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="589.0" layoutY="297.0" prefHeight="10.0" prefWidth="80.0" text="Yougurt" />
+      <Label fx:id="Remain_Juice" alignment="CENTER" contentDisplay="CENTER" layoutX="355.0" layoutY="324.0" prefHeight="10.0" prefWidth="80.0" text="0" />
+      <Label fx:id="Remain_Milk" alignment="CENTER" contentDisplay="CENTER" layoutX="421.0" layoutY="324.0" prefHeight="10.0" prefWidth="80.0" text="0" />
+      <Label fx:id="Remain_Tea" alignment="CENTER" contentDisplay="CENTER" layoutX="501.0" layoutY="324.0" prefHeight="10.0" prefWidth="80.0" text="0" />
+      <Label fx:id="Remain_Yougurt" alignment="CENTER" contentDisplay="CENTER" layoutX="589.0" layoutY="324.0" prefHeight="10.0" prefWidth="80.0" text="0" />
       <Label alignment="CENTER" layoutX="35.0" layoutY="415.0" prefHeight="23.0" prefWidth="56.0" text="Name" />
-      <GridPane fx:id="ShowRemains" layoutX="346.0" layoutY="287.0" prefHeight="90.0" prefWidth="326.0" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="57.0" AnchorPane.topAnchor="287.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-          <!-- <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" /> -->
-        </rowConstraints>
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="Juice" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="Milk" GridPane.columnIndex="1" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="Tea" GridPane.columnIndex="2" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="Yougurt" GridPane.columnIndex="3" />
-            <Label fx:id="Remain_Juice" alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <Label fx:id="Remain_Milk" alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="Remain_Tea" alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label fx:id="Remain_Yougurt" alignment="CENTER" contentDisplay="CENTER" prefHeight="10.0" prefWidth="80.0" text="0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-         </children>
-      </GridPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="297.0" prefHeight="10.0" prefWidth="80.0" text="Juice" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="380.0" prefHeight="10.0" prefWidth="80.0" text="Yougurt" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="351.0" prefHeight="10.0" prefWidth="80.0" text="Tea" />
@@ -91,5 +73,6 @@
             <Font size="13.0" />
          </font>
       </TextArea>
+      <Separator layoutX="728.0" orientation="VERTICAL" prefHeight="460.0" prefWidth="6.0" />
    </children>
 </AnchorPane>
