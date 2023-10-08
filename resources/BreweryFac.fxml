@@ -43,14 +43,14 @@
       <Button fx:id="Container0" layoutX="374.0" layoutY="129.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" text="Container0" />
       <Button fx:id="Container1" layoutX="527.0" layoutY="129.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="120.0" text="Container1" />
       <Separator layoutX="291.0" layoutY="252.0" prefHeight="4.0" prefWidth="437.0" />
-      <ChoiceBox fx:id="RecipeChoiceProduct" layoutX="353.0" layoutY="77.0" prefHeight="23.0" prefWidth="83.0" />
+      <ChoiceBox fx:id="RecipeChoiceProduct" layoutX="341.0" layoutY="77.0" prefHeight="23.0" prefWidth="89.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="6.0" layoutX="85.0" layoutY="254.0" prefHeight="38.0" prefWidth="128.0" text="Create Recipe" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="CreateRecipe" layoutX="213.0" layoutY="415.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="56.0" text="Create" />
-      <TextField fx:id="RecipeName" layoutX="93.0" layoutY="415.0" prefHeight="23.0" prefWidth="113.0" text="RecipeName" />
+      <Button fx:id="CreateRecipe" layoutX="213.0" layoutY="426.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="56.0" text="Create" />
+      <TextField fx:id="RecipeName" layoutX="92.0" layoutY="426.0" prefHeight="23.0" prefWidth="113.0" text="RecipeName" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="296.0" prefHeight="10.0" prefWidth="80.0" text="Juice" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="421.0" layoutY="297.0" prefHeight="10.0" prefWidth="80.0" text="Milk" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="501.0" layoutY="297.0" prefHeight="10.0" prefWidth="80.0" text="Tea" />
@@ -59,15 +59,15 @@
       <Label fx:id="Remain_Milk" alignment="CENTER" contentDisplay="CENTER" layoutX="421.0" layoutY="324.0" prefHeight="10.0" prefWidth="80.0" text="0" />
       <Label fx:id="Remain_Tea" alignment="CENTER" contentDisplay="CENTER" layoutX="501.0" layoutY="324.0" prefHeight="10.0" prefWidth="80.0" text="0" />
       <Label fx:id="Remain_Yougurt" alignment="CENTER" contentDisplay="CENTER" layoutX="589.0" layoutY="324.0" prefHeight="10.0" prefWidth="80.0" text="0" />
-      <Label alignment="CENTER" layoutX="35.0" layoutY="415.0" prefHeight="23.0" prefWidth="56.0" text="Name" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="297.0" prefHeight="10.0" prefWidth="80.0" text="Juice" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="380.0" prefHeight="10.0" prefWidth="80.0" text="Yougurt" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="351.0" prefHeight="10.0" prefWidth="80.0" text="Tea" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="324.0" prefHeight="10.0" prefWidth="80.0" text="Milk" />
-      <Slider fx:id="Amount_Juice" layoutX="88.0" layoutY="298.0" max="20.0" showTickLabels="true" />
-      <Slider fx:id="Amount_Milk" layoutX="88.0" layoutY="380.0" max="20.0" showTickLabels="true" />
-      <Slider fx:id="Amount_Tea" layoutX="88.0" layoutY="352.0" max="20.0" showTickLabels="true" />
-      <Slider fx:id="Amount_Yougurt" layoutX="88.0" layoutY="325.0" max="20.0" showTickLabels="true" />
+      <Label alignment="CENTER" layoutX="23.0" layoutY="426.0" prefHeight="23.0" prefWidth="56.0" text="Name" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="289.0" prefHeight="15.0" prefWidth="65.0" text="Juice" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="391.0" prefHeight="10.0" prefWidth="80.0" text="Yougurt" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="356.0" prefHeight="10.0" prefWidth="80.0" text="Tea" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="324.0" prefHeight="10.0" prefWidth="80.0" text="Milk" />
+      <Slider fx:id="Amount_Juice" layoutX="88.0" layoutY="289.0" max="20.0" prefHeight="23.0" prefWidth="140.0" showTickLabels="true" />
+      <Slider fx:id="Amount_Milk" layoutX="88.0" layoutY="386.0" max="20.0" showTickLabels="true" />
+      <Slider fx:id="Amount_Tea" layoutX="88.0" layoutY="356.0" max="20.0" showTickLabels="true" />
+      <Slider fx:id="Amount_Yougurt" layoutX="88.0" layoutY="323.0" max="20.0" showTickLabels="true" />
       <TextArea fx:id="LogScreen" editable="false" layoutX="357.0" layoutY="189.0" prefHeight="54.0" prefWidth="303.0" wrapText="true">
          <font>
             <Font size="13.0" />
