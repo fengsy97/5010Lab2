@@ -3,10 +3,13 @@ package data;
 public class RecipesLib  {
     int ingredient_types;
     int max_recipe_num;
+
     String[] ingredients;
-    int[] ingredient_num;
-    int[][] Recipes;
     String[] Recipe_name;
+
+    int[] ingredient_num;
+
+    int[][] Recipes;
 
     public RecipesLib(){
         this.ingredient_types = 4;
