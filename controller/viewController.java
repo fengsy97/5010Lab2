@@ -20,7 +20,7 @@ import data.RecipesLib;
 import javafx.util.Duration;
 
 
-public class viewController{
+public class ViewController{
 
     public RecipesLib recipeslib;
 
@@ -69,8 +69,8 @@ public class viewController{
     @FXML
     private Button Container1;
 
-    public viewController(){
-        System.out.println("Init viewController");
+    public ViewController(){
+        System.out.println("Init ViewController");
         recipeslib = new RecipesLib();
         container = new boolean[] {true,true};
     }
@@ -85,7 +85,7 @@ public class viewController{
         RecipeChoice.setOnAction((event) -> {
             String recipe_name = (String)RecipeChoice.getValue();
             if(recipe_name == null){
-                System.out.println("Initialize:recipe_name is null");
+                // System.out.println("Initialize:recipe_name is null");
                 return;
             }
             int[] recipe = recipeslib.getRecipe(recipe_name);

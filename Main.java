@@ -10,7 +10,6 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage)  throws Exception {
-        // Parent root = FXMLLoader.load(getClass().getResource("BreweryFac.fxml"));
         primaryStage.setTitle("Brewery Factory");
         Parent root = FXMLLoader.load(getClass().getResource("resources/BreweryFac.fxml"));
         Scene scene = new Scene(root);

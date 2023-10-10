@@ -1,6 +1,6 @@
-# 5010Lab2
+# Lab2 Project Intro and 
  
-## Requirements 
+## requirement 
 jre-1.8
 
-## Usage
+
