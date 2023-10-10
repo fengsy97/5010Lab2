@@ -184,10 +184,10 @@ public class viewController{
             new KeyFrame(Duration.seconds(delayTime), e -> {
                 if(container_num == 0){
                     Container0.disableProperty().set(false);
-                    Container0.setText("Container0(Ditry)");
+                    Container0.setText("Dirty");
                 }else{
                     Container1.disableProperty().set(false);
-                    Container1.setText("Container0(Ditry)");
+                    Container1.setText("Dirty");
                 }
                 LogScreen.appendText("Make " + recipe_name + " success.\n");
             }
@@ -217,7 +217,7 @@ public class viewController{
     }
 
     private void setRecipeChoice(String recipe_name){
-        if(recipe_name == ""){
+        if(recipe_name.equals("")){
             recipe_name = (String)RecipeChoice.getValue();
         }
         RecipeChoiceProduct.getItems().clear();
