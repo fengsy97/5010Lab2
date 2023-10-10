@@ -1,4 +1,5 @@
 package controller;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -12,14 +13,19 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.scene.chart.PieChart;
+
+import java.util.Arrays;
+
 import data.RecipesLib;
 import javafx.util.Duration;
 
 
 public class viewController{
+
     public RecipesLib recipeslib;
+
     public boolean [] container;
-    // public boolean Container1 = true;
+
     @FXML
     private PieChart RecipeShow ;
     @FXML
@@ -138,8 +144,13 @@ public class viewController{
             recipe[1] = (int)Amount_Milk.getValue();
             recipe[2] = (int)Amount_Tea.getValue();
             recipe[3] = (int)Amount_Yougurt.getValue();
-            if( recipe_name.length() == 0 || recipe[0] + recipe[1] + recipe[2] + recipe[3] == 0){
-                LogScreen.appendText("Create Recipe fail.\n");
+            // if( recipe_name.length() == 0 || recipe[0] + recipe[1] + recipe[2] + recipe[3] == 0){
+            if( recipe_name.length() == 0){
+                LogScreen.appendText("Create fail, name cant be none.\n");
+                return;
+            }
+            if(Arrays.stream(recipe).sum() == 0){
+                LogScreen.appendText("Create Recipe fail, recipe cant have nothing.\n");
                 return;
             }
             if(recipeslib.addRecipe(recipe_name,recipe)){
@@ -254,7 +265,7 @@ public class viewController{
 
     private ObservableList<Data> getRecipe(String[] ingredients,int[] recipe,int ingredient_num){
         ObservableList<Data> answer = FXCollections.observableArrayList();
-        String [] pieColors = {"#ff8000", "#ffff00", "#80ff00","#00ffff", "#0080ff", "#0000ff", "#8000ff", "#ff00ff", "#ff0080"};
+        String [] pieColors = {"#ff8000", "#ffff00", "#80ff00","#00ffff", "#0080ff"};
         for(int i = 0;i < ingredient_num;i++){
             if(recipe[i]>0){
                 answer.add(new PieChart.Data(ingredients[i] +":"+ recipe[i],recipe[i]));
